@@ -8,7 +8,7 @@ https://valentigamez.com
 
 ## Aprendiendo sobre Task Reservation
 
-No habrá documentación específica para este repositorio pero si algún post o video. Se pondrá en este apartado cuando esté hecho.
+Se puede encontrar toda la documentación en el siguiente enlace: https://github.com/vgrdominik/taskReservationDocumentation
 
 ## Patrocinadores de Valentí Gàmez
 
