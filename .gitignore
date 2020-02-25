@@ -8,6 +8,7 @@ Homestead.yaml
 /public/css/app.css.map
 /public/js/app.js
 /public/js/app.js.map
+.php_cs.cache
 
 #Ignoring private docker files
 docker-compose.base.yml

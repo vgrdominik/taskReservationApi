@@ -9,6 +9,7 @@ Route::middleware('auth:airlock')->get('/user', function (Request $request) {
 
 Route::namespace('\\App\\Modules\\User\\Infrastructure\\Controller\\')->group(function () {
     Route::post('/login', 'Api@login');
+    Route::post('/logout', 'Api@logout');
     Route::post('/forgotReset', 'Api@forgotReset');
     Route::post('/forgotSendResetLinkEmail', 'Api@forgotSendResetLinkEmail');
     Route::post('/register', 'Api@register');

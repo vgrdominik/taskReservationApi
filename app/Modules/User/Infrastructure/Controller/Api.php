@@ -38,7 +38,26 @@ class Api extends Controller
             ]);
         }
 
-        return response()->json($user->createToken($request->device_name)->plainTextToken);
+        $return = new \stdClass();
+        $return->token = $user->createToken($request->device_name)->plainTextToken;
+
+        return response()->json($return);
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * @throws
+     */
+    public function logout(Request $request)
+    {
+        $this->middleware('auth');
+        $this->middleware('signed')->only('verify');
+        $this->middleware('throttle:6,1')->only('verify', 'resend');
+
+        auth()->logout();
+
+        return response()->json('Exit to logout');
     }
 
     /**
