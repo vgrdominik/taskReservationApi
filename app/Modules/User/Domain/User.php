@@ -48,9 +48,14 @@ class User extends Authenticatable implements BaseDomainInterface, DescriptiveIn
 
     // RELATIONS
 
-    public function events()
+    public function ownEvents()
     {
-        return $this->hasMany('App\Modules\Event\Domain\Event');
+        return $this->hasMany('App\Modules\Event\Domain\Event', 'creator_id');
+    }
+
+    public function assignedEvents()
+    {
+        return $this->hasMany('App\Modules\Event\Domain\Event', 'destinator_id');
     }
 
     // GETTERS
@@ -67,7 +72,7 @@ class User extends Authenticatable implements BaseDomainInterface, DescriptiveIn
 
     public function getDescription(): string
     {
-        return optional($this->name) ?? 'Sin descripción';
+        return ($this->name) ?? 'Sin descripción';
     }
 
     // OTHERS

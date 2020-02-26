@@ -14,7 +14,7 @@ return [
     */
 
     'stateful' => [
-        'airlock-nuxt-frontend.521.test',
+        env('SPA_WEBSITE', 'http://localhost:3000'),
     ],
 
     /*

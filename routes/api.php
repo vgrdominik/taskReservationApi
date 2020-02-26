@@ -1,15 +1,17 @@
 <?php
 use Illuminate\Http\Request;
+use App\Modules\User\Transformers\User as UserTransformer;
 
 Route::middleware('auth:airlock')->get('/user', function (Request $request) {
-    return $request->user();
+    return new UserTransformer(auth()->user());
 });
 
 // Used to user authentication api
 
 Route::namespace('\\App\\Modules\\User\\Infrastructure\\Controller\\')->group(function () {
     Route::post('/login', 'Api@login');
-    Route::post('/logout', 'Api@logout');
+    // TODO Route::post('/refreshToken', 'Api@refreshToken');
+    Route::middleware('auth:airlock')->post('/logout', 'Api@logout');
     Route::post('/forgotReset', 'Api@forgotReset');
     Route::post('/forgotSendResetLinkEmail', 'Api@forgotSendResetLinkEmail');
     Route::post('/register', 'Api@register');

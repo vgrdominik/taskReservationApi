@@ -48,17 +48,12 @@ class Api extends Controller
     }
 
     /**
-     * @param Request $request
      * @return JsonResponse
      * @throws
      */
-    public function logout(Request $request)
+    public function logout()
     {
-        $this->middleware('auth');
-        $this->middleware('signed')->only('verify');
-        $this->middleware('throttle:6,1')->only('verify', 'resend');
-
-        auth()->logout();
+        auth()->user()->tokens()->delete();
 
         return response()->json('Exit to logout');
     }

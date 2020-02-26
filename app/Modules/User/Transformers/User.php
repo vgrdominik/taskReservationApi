@@ -26,7 +26,8 @@ class User extends BaseTransformer
     {
         return [
             $this->merge(parent::toArray($request)),
-            'events' => Event::collection($this->events),
+            'own_events' => Event::collection($this->ownEvents),
+            'assigned_events' => Event::collection($this->assignedEvents),
             'email' => $this->email,
         ];
     }
