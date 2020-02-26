@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Reserva de tareas para el desarrollador Valentí Gàmez</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -68,31 +68,27 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ config('ctic.spa_website') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
+                        <a href="{{ config('ctic.spa_website') . '/login' }}">Login</a>
+                         |
+                        <a href="{{ config('ctic.spa_website') . '/registro' }}">Registro gratuito</a>
                     @endauth
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Reserva de tareas para el desarrollador Valentí Gàmez
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://valentigamez.com">Web personal</a>
+                    <a href="https://www.facebook.com/iamvalentigamez">Facebook</a>
+                    <a href="https://twitter.com/iamvalentigamez">Twitter</a>
+                    <a href="https://www.instagram.com/iamvalentigamez/">Instagram</a>
+                    <a href="https://www.linkedin.com/in/valent%C3%AD-g%C3%A0mez-rojas-5919b073/">Linkedin</a>
+                    <a href="https://www.youtube.com/vgrdominik">Youtube</a>
                 </div>
             </div>
         </div>

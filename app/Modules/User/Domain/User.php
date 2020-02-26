@@ -4,6 +4,7 @@ namespace App\Modules\User\Domain;
 use App\Modules\Base\Domain\BaseDomainInterface;
 use App\Modules\Base\Traits\Descriptive;
 use App\Modules\Base\Traits\DescriptiveInterface;
+use App\Notifications\CustomResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Airlock\HasApiTokens;
@@ -70,6 +71,17 @@ class User extends Authenticatable implements BaseDomainInterface, DescriptiveIn
     }
 
     // OTHERS
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new CustomResetPasswordNotification($token));
+    }
 
     public function remove(): bool
     {
