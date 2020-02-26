@@ -9,8 +9,9 @@ class Event extends BaseDomain
     use Descriptive;
 
     const VALIDATION_COTNEXT = [
+        'creator_id' => ['required', 'integer', 'exists:users,id'],
+        'destinator_id' => ['required', 'integer', 'exists:users,id'],
         'description' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         'details' => ['required', 'string', 'min:8', 'max:2000'],
     ];
 
@@ -28,6 +29,11 @@ class Event extends BaseDomain
     public function creator()
     {
         return $this->belongsTo('App\Modules\User\Domain\User', 'creator_id');
+    }
+
+    public function destinator()
+    {
+        return $this->belongsTo('App\Modules\User\Domain\User', 'destinator_id');
     }
 
     // GETTERS

@@ -26,7 +26,8 @@ class Event extends BaseTransformer
         return [
             $this->merge(parent::toArray($request)),
             'details' => $this->details,
-            'creator_id' => new BaseTransformer($this->creator),
+            'creator' => new BaseTransformer($this->creator),
+            'destinator' => new BaseTransformer($this->destinator),
             'reservated_at' => $this->created_at,
         ];
     }
