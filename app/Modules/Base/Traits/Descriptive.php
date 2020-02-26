@@ -4,17 +4,17 @@ namespace App\Modules\Base\Traits;
 
 trait Descriptive
 {
-    public function getDescription(): string
+    public function getReadableAttribute(): string
     {
-        return optional($this->description) ?? 'Sin descripción';
+        return $this->description ? $this->description : 'Sin descripción';
     }
 
-    public function getShortDescription(): string
+    public function getShortReadableAttribute(): string
     {
         return 'Sin descripción corta';
     }
 
-    public function getLongDescription(): string
+    public function getLongReadableAttribute(): string
     {
         return 'Sin descripción larga';
     }

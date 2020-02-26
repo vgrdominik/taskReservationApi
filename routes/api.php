@@ -21,6 +21,7 @@ Route::namespace('\\App\\Modules\\User\\Infrastructure\\Controller\\')->group(fu
 // Ususal routes authed
 Route::namespace('\\App\\Modules\\')->middleware('auth:airlock')->group(function () {
     Route::namespace('Event\\Infrastructure\\Controller')->group(function () {
+        Route::get('eventSummary', 'Api@eventSummary');
         Route::resource('event', 'Api');
     });
 });

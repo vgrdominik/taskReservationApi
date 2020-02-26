@@ -43,7 +43,8 @@ abstract class ResourceController extends Controller
             throw ValidationException::withMessages($validator->errors()->toArray());
         }
 
-        $model->update(request()->all());
+        $model = new $modelClass(request()->all());
+        $model->save();
 
         return response()->json(new $transformerClass($model));
     }

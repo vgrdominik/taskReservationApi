@@ -70,7 +70,7 @@ class User extends Authenticatable implements BaseDomainInterface, DescriptiveIn
         return 'user';
     }
 
-    public function getDescription(): string
+    public function getReadableAttribute(): string
     {
         return ($this->name) ?? 'Sin descripción';
     }
@@ -95,6 +95,6 @@ class User extends Authenticatable implements BaseDomainInterface, DescriptiveIn
 
     public function __toString()
     {
-        return $this->getDescription();
+        return $this->readable;
     }
 }

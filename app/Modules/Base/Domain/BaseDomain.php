@@ -19,6 +19,6 @@ abstract class BaseDomain extends Model implements BaseDomainInterface, Descript
 
     public function __toString()
     {
-        return $this->getDescription();
+        return $this->readable;
     }
 }
