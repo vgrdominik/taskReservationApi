@@ -22,7 +22,7 @@ abstract class ResourceController extends Controller
      */
     public function index()
     {
-        return response()->json(($this->getTransformerClass())::collection(($this->getModelClass())::all()));
+        return response()->json(($this->getTransformerClass())::collection(($this->getModelClass())::orderBy('created_at', 'desc')->get()));
     }
 
     /**

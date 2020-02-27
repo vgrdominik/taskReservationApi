@@ -24,7 +24,7 @@ class Api extends ResourceController
      */
     public function index()
     {
-        return response()->json(($this->getTransformerClass())::collection(($this->getModelClass())::where('creator_id', auth()->user()->id)->orWhere('destinator_id', auth()->user()->id)->get()));
+        return response()->json(($this->getTransformerClass())::collection(($this->getModelClass())::where('creator_id', auth()->user()->id)->orWhere('destinator_id', auth()->user()->id)->orderBy('created_at', 'desc')->get()));
     }
 
     /**
