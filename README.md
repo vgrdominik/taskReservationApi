@@ -6,6 +6,10 @@ Api para reservar tareas.
 
 https://valentigamez.com
 
+## Proyecto relacionado
+
+Frontal: https://github.com/vgrdominik/taskReservationFrontend
+
 ## Instalación
 
 Este proyecto está hecho con Laravel 6.2 por lo que es necesario seguir sus requerimientos para hacerlo funcionar:
